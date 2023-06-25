@@ -36,15 +36,19 @@ The following have been used on this project:
 
 - Homepage
 
-  <img src="./screenshots/homepage.png" alt="screenshot" />
+  <img src="./screenshots/homepagee.png" alt="screenshot" />
 
 - ItemMouseHover
 
-  <img src="./screenshots/hover.png" alt="screenshot" />
+  <img src="./screenshots/itemHover.png" alt="screenshot" />
+
+- Votebutton MouseHover
+
+  <img src="./screenshots/mouseHover.png" alt="screenshot" />
 
 - ItemOnclick value and vote count
 
-  <img src="./screenshots/animalVote.png" alt="screenshot" />
+  <img src="./screenshots/animalVotee.png" alt="screenshot" />
 
 
 

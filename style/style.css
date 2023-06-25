@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+ 
 .divCont{
     float: left;
     text-align: center;
@@ -9,28 +13,45 @@
     list-style: none;
 }
 
-
-/* ul{
-    list-style: none;
-    display: inline-block;
-    position: sticky;
-} */
+/* The animal names as well as the more description gets a new font and alignment */
 
 li{
     display:inline-block;
-    
     margin: 10px;
+    font-family: 'Cinzel', serif;
+    font-size:20px ;
 
 }
 
+/* creates a hover over the animal names */
 p {
     background-color: yellow;
     padding: 20px;
     display: none;
+    font-family: 'Dancing Script', cursive;
+    font-size: 40px;
   }
     
   span:hover + p {
     display: block;
   }
 
-header{ text-align: center;}
+  /* Gives the header some new font styles and alignment */
+header{ text-align: center;
+        font-family: 'Abril Fatface', cursive;}
+
+
+    /* Gives the vote button a new shape and its own hover feature as well */
+button{
+    color: green;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button:hover {
+    background-color: green;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
