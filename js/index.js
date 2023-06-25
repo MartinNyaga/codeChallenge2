@@ -1,48 +1,67 @@
-//DOM functions
-function character(animal){
-    let card = document.createElement('li');
-    card.innerHTML = `
-    <img src="${animal.image}">
-    <h3>${animal.name}</>
-    <p>Votes: <span id="vote-count-${animal.id}">${animal.votes}</span></p>
-
-    <button id="vote-button-${animal.id}">Vote here</button>
-    <button id="delete-button-${animal.id}">Delete Vote</button>`
-    // Add event listener to the vote button
-  card.querySelector(`#vote-button-${animal.id}`).addEventListener('click', () => {
-    // Update the vote count
-    animal.votes++;
-    document.getElementById(`vote-count-${animal.id}`).textContent = animal.votes;
-    
-  });
-
-  // Add event listener to the delete button
-  card.querySelector(`#delete-button-${animal.id}`).addEventListener('click', () => {
-    // Remove the card from the list
-    animal.votes--;
-    document.getElementById(`vote-count-${animal.id}`).textContent = animal.votes;
-
-  });
-
-    //Animal Dom
-    document.querySelector('#animsList').appendChild(card);
-    
-    
-
-}
-//To fetch the list of animals from the server
-
-function getAnimals(){
-    fetch('http://localhost:3000/characters')
-    .then(receive => receive.json())
-    .then(data => data.forEach(animal => character(animal)));
-    
+// Getting the data from server
+function getData() {
+  fetch('http://localhost:3000/characters')
+    .then(response => response.json())
+    .then(data => domManipulate(data));
 }
 
-//Get data and send it to the DOM
-function initialize(){
-    getAnimals()
+getData();
+
+// The DOM manipulation
+function domManipulate(anim) {
+  let card = document.getElementById('animsList');
+  let infoContainer = document.getElementById('container');
+
+  for (let dub of anim) {
+    let animal = document.createElement('li');
+    animal.innerText = dub.name;
+    card.appendChild(animal);
+
+    animal.addEventListener('click', () => {
+      removeInfo();
+      moreInfo(dub, infoContainer);
+    });
+
+    //Creating the voting button and event listener
+    let voting = document.createElement('button');
+      let votes = dub.votes;
+      voting.textContent = 'Vote'
+      animal.appendChild(voting)
+      voting.addEventListener('click', () => {
+        votes++
+        updateVote(dub.id, votes);
+
+      })
+  }
 }
 
-initialize();
+// Remove displayed information after clicking another name
+function removeInfo() {
+  let infoElements = document.getElementsByClassName('info');
+  while (infoElements.length > 0) {
+    infoElements[0].remove();
+  }
+}
 
+// Update votes on the server
+function updateVote(id, votes) {
+  fetch(`http://localhost:3000/characters/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ votes: votes }),
+  })
+    .then(response => response.json())
+    .then(data => console.log('Votes updated on the server:', data))
+    
+}
+
+// Getting more information from DOM
+function moreInfo(domInfo, container) {
+  let info = document.createElement('li');
+  info.classList.add('info');
+  info.innerHTML = `<img src="${domInfo.image}">
+                    <h3>${domInfo.name} Votes are: ${domInfo.votes}</h3>`;
+  container.appendChild(info);
+}

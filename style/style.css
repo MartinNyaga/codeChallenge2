@@ -1,0 +1,36 @@
+.divCont{
+    float: left;
+    text-align: center;
+    padding: 10px 14px;
+    list-style: none;
+}
+
+.cont{
+    list-style: none;
+}
+
+
+/* ul{
+    list-style: none;
+    display: inline-block;
+    position: sticky;
+} */
+
+li{
+    display:inline-block;
+    
+    margin: 10px;
+
+}
+
+p {
+    background-color: yellow;
+    padding: 20px;
+    display: none;
+  }
+    
+  span:hover + p {
+    display: block;
+  }
+
+header{ text-align: center;}
