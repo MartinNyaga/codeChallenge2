@@ -10,13 +10,13 @@
       "id": 2,
       "name": "Mx. Monkey",
       "image": "https://thumbs.gfycat.com/FatalInnocentAmericanshorthair-max-1mb.gif",
-      "votes": 4
+      "votes": 9
     },
     {
       "id": 3,
       "name": "Ms. Zebra",
       "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
-      "votes": 3
+      "votes": 5
     },
     {
       "id": 4,
@@ -28,7 +28,7 @@
       "id": 5,
       "name": "Mme. Panda",
       "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
-      "votes": 1
+      "votes": 8
     }
   ]
 }

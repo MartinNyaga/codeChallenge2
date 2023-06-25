@@ -53,7 +53,7 @@ function updateVote(id, votes) {
     body: JSON.stringify({ votes: votes }),
   })
     .then(response => response.json())
-    .then(data => console.log('Votes updated on the server:', data))
+    .then(data => console.log(data))
     
 }
 
